@@ -15,6 +15,7 @@ const Login = () => {
         .then(result => {
             const user = result.user
             console.log(user)
+            reset()
         })
         .catch(error => console.log(error))
     }
@@ -49,9 +50,12 @@ const Login = () => {
                         {errors.email && <p>{errors.email.message}</p>}
                     </div>
                     
-                    <button className='btn btn-primary' type='submit'>Login</button>
+                    <button className='btn btn-primary my-3' type='submit'>Login</button>
                 </form>
                 <p>Don't have an account? Please <Link className='link' to='/register'>Register.</Link></p>
+                <div className='text-center'>
+                    <button className='btn btn-outline btn-accent'>Sign In With Google</button>
+                </div>
             </div>
         </div>
     );
