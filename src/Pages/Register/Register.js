@@ -17,15 +17,28 @@ const Register = () => {
         signUp(data.email, data.password)
         .then(result => {
             const user = result.user;
-            
+            saveUserInDB(user.name, user.email);
             toast('User Created Successfully....');
-            reset()
+            reset();
         })
         .catch(error => {
-            console.log(error)
+            console.log(error);
         });
     }
-    
+    const saveUserInDB  = (name, email) => {
+        const user ={name, email, role};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+        })
+    }
 
     return (
         <div className='h-[700px] flex justify-center'>
