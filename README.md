@@ -1,5 +1,10 @@
 # Getting Started with Create React App
 
+adminEmail: gulamjoy3210@gmail.com
+
+adminPassword: 123456
+
+live website : https://assignment-12-client-15eeb.web.app/
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

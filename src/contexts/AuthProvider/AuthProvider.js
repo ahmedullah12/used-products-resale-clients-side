@@ -13,7 +13,7 @@ const AuthProvider = ({children}) => {
     const googleProvider = new GoogleAuthProvider();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/user?email=${user?.email}`)
+        fetch(`https://assignment-12-server-steel-delta.vercel.app/users/user?email=${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setUserInfo(data)

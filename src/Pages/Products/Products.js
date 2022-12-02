@@ -8,7 +8,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://assignment-12-server-steel-delta.vercel.app/products')
         .then(res => res.json())
         .then(data => {
             const remaining = data.filter(prod => prod.brand === brand);
