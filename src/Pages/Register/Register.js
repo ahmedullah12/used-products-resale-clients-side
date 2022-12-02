@@ -22,7 +22,7 @@ const Register = () => {
             reset();
         })
         .catch(error => {
-            console.log(error);
+            console.error(error);
         });
     }
     const saveUserInDB  = (name, email) => {
@@ -41,9 +41,9 @@ const Register = () => {
     }
 
     return (
-        <div className='h-[700px] flex justify-center'>
+        <div className='h-[700px] mt-16 flex justify-center'>
             <div>
-                <h2 className='text-center'>Register</h2>
+                <h2 className='text-3xl text-accent font-bold text-center'>Register</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
                         <div className="form-control">
                         <label className="label">
