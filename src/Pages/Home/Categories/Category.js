@@ -10,7 +10,7 @@ const Category = ({category}) => {
                 <h2 className="card-title">{categoryName}</h2>
                 
                 <div className="card-actions justify-end">
-                    <Link><button className="btn btn-primary">See The Products</button></Link>
+                    <Link to={`/products/${categoryName}`}><button className="btn btn-primary">See The Products</button></Link>
                 </div>
             </div>
         </div>
