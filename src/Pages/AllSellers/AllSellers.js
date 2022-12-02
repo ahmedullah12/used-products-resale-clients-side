@@ -22,7 +22,8 @@ const AllSellers = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {sellers.map(seller => <tr key={seller.email}>
+                {sellers.map((seller, i) => <tr key={seller.email}>
+                    <th>{i + 1}</th>
                     <td>{seller.name}</td>
                     <td>{seller.email}</td>
                 </tr>
