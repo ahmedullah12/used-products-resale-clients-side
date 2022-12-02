@@ -9,11 +9,10 @@ const DashboardLayout = () => {
     return (
         <div>
             <NavBar></NavBar>
-            <div className="drawer">
+            <div className="drawer drawer-mobile">
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>
-                    <label htmlFor="my-drawer" className="btn btn-primary drawer-button">Open Options</label>
                 </div> 
                 <div className="drawer-side">
                     <label htmlFor="my-drawer" className="drawer-overlay"></label>

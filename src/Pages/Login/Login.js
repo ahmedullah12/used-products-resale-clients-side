@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
@@ -8,14 +8,17 @@ import { FaGoogle } from 'react-icons/fa';
 const Login = () => {
     const {login, loginWithGoogle} = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation()
 
-
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = (data) => {
         login(data.email, data.password)
         .then(result => {
             const user = result.user
-            console.log(user)
+            console.log(user);
+            navigate(from,  {replace: true});
             reset()
         })
         .catch(error => console.error(error))
@@ -26,6 +29,7 @@ const Login = () => {
             const user = result.user;
             const role = "buyer";
             saveUserInDB(user.displayName, user.email, role)
+            navigate(from,  {replace: true});
             console.log(user);
         })
         .catch(err => console.error(err))
@@ -42,7 +46,8 @@ const Login = () => {
         })
         .then(res => res.json())
         .then(data =>{
-            console.log(data)
+            console.log(data);
+            
         })
     }
     return (
