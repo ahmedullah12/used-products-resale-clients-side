@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import BookingModal from './BookingModal/BookingModal';
 
 const Product = ({product}) => {

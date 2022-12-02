@@ -24,7 +24,7 @@ const Register = () => {
             }
             updateUser(userInfo)
                     .then(() => {
-                        saveUserInDB(user.name, user.email);
+                        saveUserInDB(user.displayName, user.email);
                     })
                     .catch(err => console.log(err));
             reset();

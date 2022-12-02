@@ -24,9 +24,26 @@ const Login = () => {
         loginWithGoogle()
         .then(result => {
             const user = result.user;
+            const role = "buyer";
+            saveUserInDB(user.displayName, user.email, role)
             console.log(user);
         })
         .catch(err => console.error(err))
+    }
+
+    const saveUserInDB  = (name, email, role) => {
+        const user ={name, email, role};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+        })
     }
     return (
         <div className='h-[700px] mt-20 flex justify-center'>
